@@ -3,19 +3,16 @@ docker-oracle-xe-11g
 
 Oracle Express Edition 11g Release 2 on Ubuntu 14.04.1 LTS
 
-This **Dockerfile** is a [trusted build](https://registry.hub.docker.com/u/sath89/oracle-xe-11g/) of [Docker Registry](https://registry.hub.docker.com/).
+This **Dockerfile** is a based on [https://registry.hub.docker.com/u/sath89/oracle-xe-11g/]
+It is actually a role back to the changes before June 2015 for local compatibility reasons.
 
 ### Installation
 
-    docker pull sath89/oracle-xe-11g
+    docker pull deradam/oracle-xe-11g
 
 Run with 8080 and 1521 ports opened:
 
-    docker run -d -p 8080:8080 -p 1521:1521 sath89/oracle-xe-11g
-
-Run with data on host and reuse it:
-
-    docker run -d -p 8080:8080 -p 1521:1521 -v /my/oracle/data:/u01/app/oracle/oradata sath89/oracle-xe-11g
+    docker run -d -p 8080:8080 -p 1521:1521 deradam/oracle-xe-11g
 
 Connect database with following setting:
 
@@ -35,13 +32,3 @@ Connect to Oracle Application Express web management console with following sett
     workspace: INTERNAL
     user: ADMIN
     password: oracle
-
-**CHANGELOG**
-* Fixed issue with ownership of mounted data folders.
-* Fixed issue with Gracefull shutdown of service.
-* Reduse size of image from 3.8G to 825Mb.
-* Database initialization moved out of the image build phase. Now database initializes at the containeer startup with no database files mounted.
-* Added database media reuse support outside of container.
-* Added graceful shutdown on containeer stop.
-* Removed sshd.
-

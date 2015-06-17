@@ -1,6 +1,6 @@
 FROM ubuntu:14.04.1
 
-MAINTAINER Maksym Bilenko <sath891@gmail.com>
+MAINTAINER Adam Giemza <adam.giemza@gmail.com>
 
 ADD chkconfig /sbin/chkconfig
 ADD oracle-install.sh /oracle-install.sh
